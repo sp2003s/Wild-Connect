@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST A JOB</title>
+
+    <script src="server.js"></script>
+
+    <link rel="stylesheet" href="/style/post.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none; color:#359381;"><h2 class="logo" style="font-size: 2.9em;">WildConnect</h2></a>
+        <nav class="navigation">
+            <a href="apply.html">Apply/Join</a>
+            <a href="postjob.html">Post Job</a>
+            <a href="resources.html">Resources</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQs</a>
+        </nav>
+    </header>
+
+    <br><br><br><br><br><br><br><br><br>
+
+    <div class="content">
+        <p style="font-size: 1.71em;"><b>Post A Job</b></p>
+
+        <br><hr style="margin: 0 190px 0 190px;"><br>
+
+        <form action="/postjob" id="postjob" method="POST">
+
+            <table cellspacing="29px">
+                <tr>
+                    <td><label for="jobTitle">Job Title:</label></td>
+                    <td><input type="text" id="jobTitle" name="jobTitle" required></td>
+                </tr>
+
+                <tr>
+                    <td><label for="location">Location:</label></td>
+                    <td><input type="text" id="location" name="location" required> </td>
+                </tr>
+
+                <tr>
+                    <td><label for="jobDescription">Job Description:</label></td>
+                    <td><input type="text" id="jobDescription" name="jobDescription" required></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><label for="qualifications">Qualifications:</label></td>
+                    <td><input type="text" id="qualifications" name="qualifications" required cols="27"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><label for="applicationDeadline">Application Deadline:</label></td>
+                    <td><input type="date" id="applicationDeadline" name="applicationDeadline" required></td>
+                </tr>
+
+            </table> <br><br>
+        
+            <input type="submit" value="Post Job" class="submit-btn">
+        </form>
+    </div>
+
+    
+</body>
+</html>

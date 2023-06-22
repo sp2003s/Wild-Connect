@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applied Jobs</title>
+  <link rel="stylesheet" href="/style/apply.css">
+  <link rel="icon" type="image/x-icon" href="/images/ZWF-Favicon-1.webp">
+  <script src="server.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" style="text-decoration: none; color:#359381;"><h2 class="logo" style="font-size: 2.9em;">WildConnect</h2></a>
+    <nav class="navigation">
+      <a href="apply.html">Apply/Join</a>
+      <a href="postjob.html">Post Job</a>
+      <a href="resources.html">Resources</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="FAQ.html">FAQs</a>
+    </nav>
+  </header>
+
+  <br><br><br><br><br><br><br><br>
+
+  <div id="jobData" class="jobData"></div>
+
+  <script>
+    // Retrieve the JSON data passed from the server
+    fetch('/apply')
+      .then(response => response.json())
+      .then(data => {
+        const jobDataContainer = document.getElementById('jobData');
+        data.forEach(job => {
+          const jobDiv = document.createElement('div');
+          jobDiv.innerHTML = `
+            <h2>${job.jobTitle}</h2> <br>
+            <p style="margin: 0 70px 0 80px; display: inline; float:left;"> Location: ${job.location}</p>
+            <p style="margin: 0; display: inline;" align="right float:right;">Description: ${job.jobDescription}</p> <br>
+            <p style="margin: 0 70px 0 80px; display: inline; float:left;">Qualifications: ${job.qualifications}</p>
+            <p style="margin: 0; display: inline;" align="right float:right;">Deadline: ${job.applicationDeadline}</p> <br><br>
+            <form action="applySuccess.html"><button>Apply</button></form>
+          `;
+          jobDataContainer.appendChild(jobDiv);
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>

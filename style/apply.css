@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f9f9f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+    background-color: #a4ddd39b;
+    transition: background-color 1s;
+}
+
+header:hover{
+    background-color: #a4ddd3e8;
+}
+
+.logo{
+    font-size: 2em;
+    color: #359381;
+    pointer-events: none;
+    margin-right: 230px; 
+}
+
+.navigation a{
+    text-decoration: none;
+    color: #359381;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.navigation a:hover, 
+.navigation a.active{
+    background: #359381;
+    color: white;
+}
+
+.jobData{
+    text-align: center;
+}
+
+.jobData>div{
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px black;
+    margin-left: 28%;
+    margin-right: 28%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    transition: background-color 1s, box-shadow 0.7s;
+    box-shadow: 6px 6px 8px black;
+}
+
+.jobData>div:hover{
+    background-color: rgb(228, 253, 250);
+    box-shadow: 10px 10px 12px black;
+}
+
+.jobData>div>p{
+    padding: 0px;
+}
+
+button{
+    margin: 10px;
+    padding: 10px;
+    width: 80px;
+    background-color: #97d8ccef;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+button:hover{
+    background-color: #6bcab9;
+}

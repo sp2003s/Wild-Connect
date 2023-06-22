@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wild Connect</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/ZWF-Favicon-1.webp">
+</head>
+
+<script>
+    const user = urlParams.get('user');
+    if (!user) {
+      const logout = document.getElementById('logout-btn');
+      logout.style.display = 'block';
+    }
+
+    function checkLogin(event) {
+        const user = urlParams.get('user');
+        if (!user) {
+          event.preventDefault(); // Prevent the default behavior of the link
+          alert('Please log-in first.'); // Display an alert message
+        }
+      }  
+      function logout() {
+        window.location.href = 'login.html';
+      }          
+</script>
+<body>
+
+    <header>
+        <h2 class="logo">Wild Connect</h2>
+        <nav class="navigation">
+            <a href="apply.html" onclick="checkLogin(event)">Apply/Join</a>
+            <a href="postjob.html" onclick="checkLogin(event)">Post Job</a>
+            <a href="resources.html">Resources</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="FAQ.html">FAQs</a>
+        </nav>
+        <div id="userContainer">
+            <a href="login.html" style="float:right;" id="loginButton"><button class="log-sign">LogIn/SignUp</button></a>
+        </div>
+        <a onclick="logout()" id="logout-btn"><button class="log-sign" style="margin-left:10px;">Log-Out</button></a>
+    </header>
+
+    <section class="parallax">
+        <img src="./images/hill1.png" id="hill1">
+        <img src="./images/hill2.png" id="hill2">
+        <img src="./images/hill3.png" id="hill3">
+        <img src="./images/hill4.png" id="hill4">
+        <img src="./images/hill5.png" id="hill5">
+        <img src="./images/tree.png" id="tree">
+        <h2 id="text">Wild Connect</h2>
+        <img src="./images/leaf.png" id="leaf">
+        <img src="./images/plant.png" id="plant">
+    </section>
+
+    <section class="sec">
+        <h2>Wildlife</h2>
+        <p style="font-size: large; line-height: 35px;">
+            Wildlife refers to the diverse range of plant and animal species that inhabit natural environments, including forests, grasslands, wetlands, and oceans. It encompasses mammals, birds, reptiles, amphibians, fish, insects, and various other organisms. Wildlife plays a crucial role in maintaining ecological balance, contributing to biodiversity, and providing essential ecosystem services.
+        </p>
+        <br>
+        <br>
+        <br>
+        <h2>Some Problems Related To Wildlife</h2>
+        <ul style="color: white">
+            <br>
+            <li>Habitat Loss and Fragmentation</li>
+            <br>
+            <li>Poaching and Illegal Wildlife Trade</li>
+            <br>
+            <li>Climate Change</li>
+            <br>
+            <li>Human-Wildlife Conflict</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <h2>Solution through our website</h2>
+        <ul style="color: white">
+            <br>
+            <li>Volunteer Engagement</li>
+            <br>
+            <li>Wildlife Rehabilitation and Care</li>
+            <br>
+            <li>Education and Training</li>
+            <br>
+            <li>Awareness and Advocacy</li>
+            <br>
+            <li>Recognition and Support</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <h2 style="color: white;">Start Your Journey With Us!!</h2>
+        <br>
+        <br>
+        <nav class="navigation" style="text-align: center;">
+            <a href="apply.html" style="border: 2px solid white;" onclick="checkLogin(event)">Apply/Join</a>
+            <a href="postjob.html" style="border: 2px solid white;" onclick="checkLogin(event)">Post Job</a>
+            <a href="resources.html" style="border: 2px solid white;">Resources</a>
+        </nav>
+    </section>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const username = urlParams.get('user');
+      const loginButton = document.getElementById('userContainer');
+      const logoutButton = document.getElementById('logout-btn');
+      
+      if (username) {
+        fetch('/users.json')
+          .then(response => response.json())
+          .then(users => {
+            const matchedUser = users.find(user => user.email === username);
+            if (matchedUser) {
+              const usernameElement = document.createElement('span');
+              usernameElement.id = 'username';
+              usernameElement.textContent = matchedUser.name;
+              usernameElement.style.fontSize = '1.22em';
+              usernameElement.style.color = 'rgb(111, 115, 115)';
+              usernameElement.style.fontWeight = 'bold';
+              usernameElement.style.marginLeft = '340px';
+              usernameElement.style.backgroundColor = 'rgba(255, 255, 255, 0.749)';
+              usernameElement.style.padding = '10px';
+              usernameElement.style.borderRadius = '20px';
+      
+              loginButton.innerHTML = ''; // Clear the content of the loginButton element
+              loginButton.appendChild(usernameElement); // Append the username element to the loginButton
+      
+              logoutButton.style.display = 'block'; // Show the logout button
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      } else {
+        loginButton.style.display = 'block';
+        logoutButton.style.display = 'none'; // Hide the logout button
+      }
+      
+      </script>
+          
+
+    <script src="/JS/script.js"></script>
+</body>
+</html>
