@@ -8,3 +8,5 @@ It is fully working website where to access the features the user has to sign up
 Any data updated using postJob method will be immeadeatly reflected in apply for a job section.
 
 To view proper website. Download it and run on your system.
+
+Parallax effect - https://www.youtube.com/watch?v=kmM6mqvnxcs
